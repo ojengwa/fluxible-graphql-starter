@@ -1,0 +1,13 @@
+---
+    // extends:
+    //     - "@mesaic/eslint-config-mesaic"
+    parser: "babel-eslint"
+    env:
+        node: true
+    rules:
+        indent: [2, 4]
+        quotes: [2, 'single']
+        no-console: 0
+        no-empty: 0
+        no-redeclare: 0
+        no-unused-vars: 0

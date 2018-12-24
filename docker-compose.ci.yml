@@ -1,0 +1,24 @@
+version: "2"
+
+services:
+    mesaic:
+        extends:
+            file: docker-compose.yml
+            service: mesaic
+        links:
+          - database
+        ports:
+          - "3000:3000"
+          - "3001:3001"
+          - "35729:35729"
+        volumes:
+          - .:/app
+        environment:
+          - NODE_ENV=development
+        command: yarn lint && yarn test
+
+    database:
+        extends:
+            file: docker-compose.yml
+            service: database
+        restart: always

@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+  mesaic:
+    build: .
+    container_name: mesaic
+    environment:
+        DB_HOST: database
+        DB_NAME: mesaic
+        DB_USER: mesaic
+        DB_PASS: 4Qaa6XEa9
+        PORT: 3000
+        FILESTACK_KEY: AviVJQT34Qaa6XEa9VMvQz
+    expose:
+      - "3000"
+    command: yarn start
+    restart: always
+
+  database:
+    image: mysql:8.0.4 # latest docker images without any known vulnerability
+    container_name: database
+    environment:
+        MYSQL_ROOT_PASSWORD: 4Qaa6XEa9
+        MYSQL_PASSWORD: 4Qaa6XEa9
+        MYSQL_USER: mesaic
+        MYSQL_DATABASE: mesaic
+    restart: always
+
+
+volumes:
+    data:
